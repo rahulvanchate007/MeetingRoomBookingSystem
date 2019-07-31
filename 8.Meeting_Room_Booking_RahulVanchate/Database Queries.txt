@@ -1,0 +1,68 @@
+Database is named as root;
+
+
+
+
+
+logindetails TABLE CREATION
+create table logindetails(username varchar(20) primary key,password varchar(40) not null,role varchar(10) not null);
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(30) | NO   | PRI | NULL    |       |
+| password | varchar(40) | NO   |     | NULL    |       |
+| role     | varchar(20) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+
+
+
+
+meetingrequest TABLE CREATION
+create table meetingrequest(id integer auto_increment primary key,date date,starttime time,endtime time,user varchar(20) not null,mrno integer(15) not null,resource varchar(15) not null,status varchar(20) not null);
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| id        | int(11)     | NO   | PRI | NULL    | auto_increment |
+| date      | date        | YES  |     | NULL    |                |
+| starttime | time        | NO   |     | NULL    |                |
+| endtime   | time        | NO   |     | NULL    |                |
+| user      | varchar(30) | NO   | MUL | NULL    |                |
+| mrno      | int(11)     | NO   |     | NULL    |                |
+| resource  | varchar(30) | NO   |     | NULL    |                |
+| status    | varchar(20) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+
+
+ insert into Meeting_Request values(1,'2019-07-19','11:10:00','12:10:00','sahit',1,'projector','NEW');
+
+
+meetingroom TABLE CREATION
+ create table meetingroom(mrno integer not null,date date not null,starttime time not null,endtime time not null,bookedby varchar(20) not null);
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| mrno      | int(11)     | YES  |     | NULL    |       |
+| date      | date        | YES  |     | NULL    |       |
+| starttime | time        | YES  |     | NULL    |       |
+| endtime   | time        | YES  |     | NULL    |       |
+| bookedby  | varchar(30) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+insert into meetingroom values(1,'2019-07-19','11:10:00','12:10:00','sahit');
+
+
+resourceusage TABLE CREATION
+ create table resourceusage(resno integer not null,resname varchar(20) not null,date date not null,starttime time not null,endtime time not null,usedby varchar(20) not null,usedin integer not null);
+
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| resno     | int(11)     | YES  |     | NULL    |       |
+| resname   | varchar(30) | YES  |     | NULL    |       |
+| date      | date        | YES  |     | NULL    |       |
+| starttime | time        | YES  |     | NULL    |       |
+| endtime   | time        | YES  |     | NULL    |       |
+| usedby    | varchar(30) | YES  |     | NULL    |       |
+| usedin    | int(11)     | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+
+ insert into resourceusage values(1,'Projector','2019-07-19','11:10:00','12:10:00','sahit',1);
